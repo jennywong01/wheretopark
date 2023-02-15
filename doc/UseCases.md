@@ -1,3 +1,3 @@
-1.
+1.Tejal is driving to Seattle Uptown for dinner. She is unfamiliar with the area and would like to know where she should park for 2 hours during dinner time. Tejal knows the name of the restaurant to input in the tool and expects to receive the address of the closest parking area to her destination.
 
-2.
+2.Wanwei is going to a restaurant where she knows the area is usually hard to find parking. She would like to know which parking area will be less likely to be occupied at her arrival. Wanwei doesn’t input a specific address, she wants to drag the map to see which area is a better parking area. She doesn't care about the distance, and only wants to take the occupancy rate into consideration to find a parking spot.
