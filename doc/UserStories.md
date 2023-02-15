@@ -1,4 +1,4 @@
-** Find closest parking
+## Find closest parking
 
 User: input restaurant name
 
@@ -9,7 +9,7 @@ User: pick the correct address
 Tool: returns list of parking area address sorted by distance along with the map
 
 
-** Find lowest occupancy parking
+## Find lowest occupancy parking
 
 
 User: no input
