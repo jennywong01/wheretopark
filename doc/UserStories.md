@@ -8,10 +8,11 @@ User: pick the correct address
 
 Tool: returns list of parking area address sorted by distance along with the map
 
-Find lowest occupancy parking
+
+2. Find lowest occupancy parking
 
 
-2. User: no input
+User: no input
 
 Tool: display default Seattle map
 
