@@ -1,0 +1,11 @@
+name: project
+channels:
+  - defaults
+dependencies:
+  - jupyter
+  - python
+  - notebook
+  - bokeh
+  - pandas
+  - requests
+  - flask
