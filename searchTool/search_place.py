@@ -11,9 +11,7 @@ def find_places(keyword):
     response = requests.request("GET", url, headers={}, data={})
     df = pd.json_normalize(response.json(), record_path=['results'])
     df = df[['place_id', 'name', 'vicinity', 'geometry.location.lat', 'geometry.location.lng']]
-
     return df
 
 
-# find_places("starbucks")
 
