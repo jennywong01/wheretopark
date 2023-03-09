@@ -103,8 +103,8 @@ class TestFindPlaces(unittest.TestCase):
         with self.assertRaises(TypeError):
             find_places()
 
-    # Edge test (no input)
-    def test_find_places_noinput(self):
+    # Edge test (2 parameters)
+    def test_find_places_input2(self):
         """Test using 2 input parameters to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             find_places('Starbucks','Reserve')
