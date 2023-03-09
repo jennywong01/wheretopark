@@ -23,8 +23,8 @@ def haversine_distance(lat1, lon1, lat2, lon2):
 # use user input as reference, this needs to link with flask
 ref_lat, ref_lng = 47.6949, -122.3394
 
-df_paid = pd.read_pickle("./searchTool/df_paid.pkl")
-df_free = pd.read_pickle("./searchTool/df_free.pkl")
+df_paid = pd.read_pickle("df_paid.pkl")
+df_free = pd.read_pickle("df_free.pkl")
 merged_df = pd.concat([df_paid,df_free])
 
 distances = []
