@@ -8,7 +8,7 @@ TestFindPlaces is a class that tests find_places through smoke, edge, and one-sh
 """
 
 import unittest
-from searchTool import my_map, selected_map
+from searchTool import my_map
 from searchTool import find_places
 
 # Define a class in which the tests will run for selected_map
@@ -18,66 +18,66 @@ class TestMyMap(unittest.TestCase):
     # Smoke test
     def test_selected_map_smoke(self):
         """Test to see if there is an unexpected exception."""
-        map_smoke = selected_map(47.6062,-122.3321, 12)
+        map_smoke = my_map(47.6062,-122.3321, 12)
         self.assertTrue(map_smoke)
 
     # Edge test (1 parameter)
     def test_selected_map_edge1(self):
         """Test when there is only one input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
-            selected_map(47.6062, -122.3321)
+            my_map(47.6062, -122.3321)
             
     # Edge test (2 parameters)
     def test_selected_map_edge2(self):
         """Test when there is only one input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
-            selected_map(47.6062, -122.3321)
+            my_map(47.6062, -122.3321)
 
     # Edge test (3 parameters)
     def test_selected_map_edge3(self):
         """Test when there are 3 inputs to see if expected exception occurs."""
         with self.assertRaises(TypeError):
-            selected_map(47.6062,-122.3321,122.3321)
+            my_map(47.6062,-122.3321,122.3321)
             
     # Edge test (non-float parameters)
     def test_selected_map_edge4(self):
         """Test when inputs are string."""
         with self.assertRaises(TypeError):
-            selected_map('47.6062','-122.3321','12')
+            my_map('47.6062','-122.3321','12')
             
     # Edge test (range of latitude)
     def test_selected_map_edge5(self):
         """Test when the latitude is not within Seattle."""
         lat = 50
-        selected_map(lat,-122.3321,12)
+        my_map(lat,-122.3321,12)
         self.assertAlmostEqual(47.6, lat, 'Latitude is out of the range of Seattle')
             
     # Edge test (range of longitude)
     def test_selected_map_edge6(self):
         """Test when the longitude is not within Seattle."""
         lng = -100
-        selected_map(47.6062,lng,12)
+        my_map(47.6062,lng,12)
         self.assertAlmostEqual(-122.3, lng, 'Longitude is out of the range of Seattle')
         
     # Edge test (zoom cannot be negative)
     def test_selected_map_edge7(self):
         """Test when the longitude is not within Seattle."""
         zoom = -100
-        selected_map(47.6062,-122.3321,zoom)
+        my_map(47.6062,-122.3321,zoom)
         assert (zoom <= 0),'Zoom is negative'
         
     # Edge test (zoom cannot be too large)
     def test_selected_map_edge8(self):
         """Test when the longitude is not within Seattle."""
         zoom = 20
-        selected_map(47.6062,-122.3321,zoom)
+        my_map(47.6062,-122.3321,zoom)
         assert (zoom >= 20),'Zoom in too far'
 
     # Edge test (No parameters)
     def test_selected_map_edge0(self):
         """Test when there is no input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
-            selected_map()
+            my_map()
 
 
 # Define a class in which the tests will run for find_places
