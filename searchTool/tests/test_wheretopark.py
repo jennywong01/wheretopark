@@ -48,6 +48,12 @@ class TestSelectedMap(unittest.TestCase):
         """Test when there are 3 inputs to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             selected_map(47.6062,-122.3321,122.3321)
+            
+    # Edge test (non-float parameters)
+    def test_selected_map_edge4(self):
+        """Test when there are 3 inputs to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            selected_map('47.6062','-122.3321')
 
     # Edge test (No parameters)
     def test_selected_map_edge0(self):
