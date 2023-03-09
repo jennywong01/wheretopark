@@ -51,9 +51,23 @@ class TestSelectedMap(unittest.TestCase):
             
     # Edge test (non-float parameters)
     def test_selected_map_edge4(self):
-        """Test when there are 3 inputs to see if expected exception occurs."""
+        """Test when inputs are string."""
         with self.assertRaises(TypeError):
             selected_map('47.6062','-122.3321')
+            
+    # Edge test (range of latitude)
+    def test_selected_map_edge5(self):
+        """Test when the latitude is not within Seattle."""
+        lat = 50
+        selected_map(lat,-122.3321)
+        self.assertAlmostEqual(47.6, lat, 'Latitude is out of the range of Seattle')
+            
+    # Edge test (range of longitude)
+    def test_selected_map_edge6(self):
+        """Test when the longitude is not within Seattle."""
+        lng = -100
+        selected_map(47.6062,lng)
+        self.assertAlmostEqual(-122.3, lng, 'Longitude is out of the range of Seattle')
 
     # Edge test (No parameters)
     def test_selected_map_edge0(self):
