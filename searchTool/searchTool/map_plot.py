@@ -5,8 +5,8 @@ import pandas as pd
 
 
 def my_map():
-    df_paid = pd.read_pickle("./searchTool/df_paid.pkl")
-    df_free = pd.read_pickle("./searchTool/df_free.pkl")
+    df_paid = pd.read_pickle("df_paid.pkl")
+    df_free = pd.read_pickle("df_free.pkl")
 
     map_options = GMapOptions(lat=47.6062, lng=-122.3321, map_type="roadmap", zoom=14)
 
