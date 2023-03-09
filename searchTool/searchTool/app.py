@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 from bokeh.embed import components
 from bokeh.resources import CDN
-from map_plot import my_map, selected_map
+from map_plot import my_map
 from search_place import find_places
 from forms import MapSearchForm
 import pandas as pd
-import requests
 
 app = Flask(__name__)
 
@@ -13,7 +12,7 @@ app = Flask(__name__)
 # default page
 @app.route('/', methods=['GET', 'POST'])
 def homepage():
-    p = my_map()
+    p = my_map(lat=47.6062, lng=-122.3321, zoom=14)
     script1, div1 = components(p)
 
     search = MapSearchForm(request.form)
@@ -48,12 +47,11 @@ def selected_place():
     lat = places.iloc[row]['geometry.location.lat']
     lng = places.iloc[row]['geometry.location.lng']
 
-    p = selected_map(lat, lng)
+    p = my_map(lat, lng, zoom=16)
     script, div = components(p)
 
     return render_template('selected.html',
                            script=script, div=div, resources=CDN.render())
-
 
 
 if __name__ == '__main__':
