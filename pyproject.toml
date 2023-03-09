@@ -1,0 +1,27 @@
+[project]
+name = "wheretopark"
+version = "0.0.1"
+authors = [
+  { name="April Gao", email="aprilgg@uw.edu" },
+  { name="Jenny Wong", email="gjwong@uw.edu" },
+  { name="Tejal Kolte", email="tejalk@uw.edu" },
+  { name="Wanwei Huang", email="hww1999@uw.edu" }
+]
+description = "Tool for output the information of the recommended parking location based on the search requests from the users."
+readme = "README.md"
+requires-python = ">=3.9, <4.0"
+dependencies = [
+    "bokeh>=3.0",
+    "flask",
+    "requests",
+    "numpy>=1.2",
+    "pandas>=1.4"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jennywong01/wheretopark/"
