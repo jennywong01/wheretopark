@@ -8,8 +8,8 @@ TestFindPlaces is a class that tests find_places through smoke, edge, and one-sh
 """
 
 import unittest
-from map_plot import my_map, selected_map
-from search_place import find_places
+from searchTool import my_map, selected_map
+from searchTool import find_places
 
 # Define a class in which the tests will run for my_map
 class TestMyMap(unittest.TestCase):
