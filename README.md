@@ -1,5 +1,7 @@
 # wheretopark
 
+[![Coverage Status](https://coveralls.io/repos/github/jennywong01/wheretopark/badge.svg?branch=main)](https://coveralls.io/github/jennywong01/wheretopark?branch=main)
+
 Project Type: Tool
 
 Project Goal: output the information of the recommended parking location based on the search requests from the users
