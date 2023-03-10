@@ -78,6 +78,11 @@ class TestMyMap(unittest.TestCase):
         """Test when there is no input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             my_map()
+            
+    # Edge test (No parameters)
+    def test_selected_map_edge9(self):
+        """Test if there are 5 tools in gmap."""
+        self.assertEqual(5,len(my_map(47.6062,-122.3321, 12).tools))
 
 
 # Define a class in which the tests will run for find_places
