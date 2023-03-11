@@ -44,7 +44,7 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     # The actual workflow steps!
-    steps:
+      steps:
       # First, check out the repository for the current branch.
       - uses: actions/checkout@v3
 
