@@ -2,15 +2,17 @@ from bokeh.models import ColumnDataSource, GMapOptions
 from bokeh.plotting import gmap, figure
 from bokeh.models import HoverTool
 import pandas as pd
-from distance import rec_parking
+import os
 
 
 def my_map(lat, lng, zoom):
-    # df_paid = pd.read_pickle("./searchTool/df_paid.pkl")
-    # df_free = pd.read_pickle("./searchTool/df_free.pkl")
+    dirname = os.path.dirname(__file__)
+    filename_paid = os.path.join(dirname, 'df_paid.pkl')
+    filename_free = os.path.join(dirname, 'df_free.pkl')
 
-    df_paid = pd.read_pickle("df_paid.pkl")
-    df_free = pd.read_pickle("df_free.pkl")
+    df_paid = pd.read_pickle(filename_paid)
+    df_free = pd.read_pickle(filename_free)
+
     map_options = GMapOptions(lat=lat, lng=lng, map_type="roadmap", zoom=zoom)
     df_rec = rec_parking(lat, lng)
 
