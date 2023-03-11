@@ -84,17 +84,16 @@ jobs:
       - name: Install additional development dependencies
         run: |
           conda install --yes coverage
-          conda install --yes pylint
+#          conda install --yes pylint
       
       # If there are any other steps in order for your tests to
       # run successfully, you can add those steps here!
 
-"""
+
       # Next step: run pylint. Anything less than 10/10 will fail.
-      - name: Lint with pylint
-        run: |
-          pylint searchTool/**/*.py
-"""
+#      - name: Lint with pylint
+#        run: |
+#          pylint searchTool/**/*.py
 
       # Next step: run the unit tests with code coverage.
 #       - name: Unit tests
