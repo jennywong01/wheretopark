@@ -9,6 +9,7 @@ TestFindPlaces is a class that tests find_places through various tests.
 import unittest
 from searchTool import my_map
 from searchTool import find_places
+from searchTool import rec_parking
 
 # Define a class in which the tests will run for my_map
 class TestMyMap(unittest.TestCase):
@@ -136,6 +137,10 @@ class TestFindPlaces(unittest.TestCase):
         """Test using 2 input parameters to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             find_places('Starbucks','Reserve')
+            
+# Define a class in which the tests will run for rec_parking
+class TestRecParking(unittest.TestCase):
+    """Perform testing of rec_parking"""
 
 
 if __name__ == '__main__':
