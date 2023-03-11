@@ -41,7 +41,7 @@ class TestMyMap(unittest.TestCase):
     # Edge test (non-float parameters)
     def test_my_map_edge4(self):
         """Test when inputs are string."""
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             my_map('47.6062','-122.3321','12')
             
     # Edge test (range of latitude)
