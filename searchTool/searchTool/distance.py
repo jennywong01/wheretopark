@@ -4,10 +4,10 @@ import pandas as pd
 
 def rec_parking(lat,lng):
     def haversine_distance(lat1, lon1, lat2, lon2):
-        '''
-        this function will take the user input address as reference and calculate the distance to each parking,
-        then return the top n closest parking
-        '''
+        """
+        this function will take the user input address as reference and calculate
+        the distance to each parking, then return the top n closest parking
+        """
         lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
 
         # Haversine formula

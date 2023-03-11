@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 from bokeh.embed import components
 from bokeh.resources import CDN
 from map_plot import my_map
@@ -12,6 +12,7 @@ app = Flask(__name__)
 # default page
 @app.route('/', methods=['GET', 'POST'])
 def homepage():
+    """ Define homepage """
     p = my_map(lat=47.6062, lng=-122.3321, zoom=14)
     script1, div1 = components(p)
 
@@ -21,11 +22,13 @@ def homepage():
         path = 'result.pkl'
         places.to_pickle(path)
         places['name'] = places.index.map(lambda x:
-                                          f'<a href=selected_place?result={path}&row={x}>{x} {places["name"][x]}</a>')
+                                          f'<a href=selected_place?result={path}&row={x}>{x} \
+                                          {places["name"][x]}</a>')
 
         return render_template('hello.html', message="TEST",
                                test=True,
-                               tables=[places[['name', 'vicinity']].to_html(classes='data', escape=False)],
+                               tables=[places[['name', 'vicinity']].to_html(classes='data',
+                                                                            escape=False)],
                                titles=places.columns.values,
                                script=script1,
                                div=div1,
@@ -41,6 +44,7 @@ def homepage():
 
 @app.route('/selected_place')
 def selected_place():
+    """Define page after user select the destination"""
     path = request.args.get('result')
     row = int(request.args.get('row'))
     places = pd.read_pickle(path)
