@@ -25,7 +25,7 @@ class TestMyMap(unittest.TestCase):
         """Test when there is only one input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             my_map(47.6062)
-            
+
     # Edge test (2 parameters)
     def test_my_map_edge2(self):
         """Test when there are only 2 inputs to see if expected exception occurs."""
@@ -37,34 +37,34 @@ class TestMyMap(unittest.TestCase):
         """Test when 3rd input is not integer to see if expected exception occurs."""
         with self.assertRaises(ValueError):
             my_map(47.6062,-122.3321,122.3321)
-            
+
     # Edge test (non-float parameters)
     def test_my_map_edge4(self):
         """Test when inputs are string."""
         with self.assertRaises(ValueError):
             my_map('47.6062','-122.3321','12')
-            
+
     # Edge test (range of latitude)
     def test_my_map_edge5(self):
         """Test when the latitude is not within Seattle."""
         lat = 50
         my_map(lat,-122.3321,12)
         self.assertAlmostEqual(47.6, lat, 'Latitude is out of the range of Seattle')
-            
+
     # Edge test (range of longitude)
     def test_my_map_edge6(self):
         """Test when the longitude is not within Seattle."""
         lng = -100
         my_map(47.6062,lng,12)
         self.assertAlmostEqual(-122.3, lng, 'Longitude is out of the range of Seattle')
-        
+
     # Edge test (zoom cannot be negative)
     def test_my_map_edge7(self):
         """Test when zoom value is negative."""
         zoom = -100
         my_map(47.6062,-122.3321,zoom)
         assert (zoom <= 0),'Zoom is negative'
-        
+
     # Edge test (zoom cannot be too large)
     def test_my_map_edge8(self):
         """Test when zoom value is too large."""
@@ -77,7 +77,7 @@ class TestMyMap(unittest.TestCase):
         """Test when there is no input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             my_map()
-            
+
     # One-shot test
     def test_my_map_oneshot(self):
         """Test to ensure there are 5 tools in gmap."""
