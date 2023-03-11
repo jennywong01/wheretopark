@@ -3,6 +3,7 @@ from bokeh.embed import components
 from bokeh.resources import CDN
 from map_plot import my_map
 from search_place import find_places
+from distance import rec_parking
 from forms import MapSearchForm
 import pandas as pd
 
@@ -48,6 +49,7 @@ def selected_place():
     lng = places.iloc[row]['geometry.location.lng']
 
     p = my_map(lat, lng, zoom=16)
+
     script, div = components(p)
 
     return render_template('selected.html',
