@@ -44,7 +44,7 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     # The actual workflow steps!
-      steps:
+    steps:
       # First, check out the repository for the current branch.
       - uses: actions/checkout@v3
 
@@ -91,9 +91,9 @@ jobs:
 
 
       # Next step: run pylint. Anything less than 10/10 will fail.
-#      - name: Lint with pylint
-#        run: |
-#          pylint searchTool/**/*.py
+      - name: Lint with pylint
+        run: |
+          pylint searchTool/**/*.py
 
       # Next step: run the unit tests with code coverage.
        - name: Unit tests
