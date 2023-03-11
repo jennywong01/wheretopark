@@ -35,7 +35,7 @@ class TestMyMap(unittest.TestCase):
     # Edge test (3 parameters)
     def test_my_map_edge3(self):
         """Test when 3rd input is not integer to see if expected exception occurs."""
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             my_map(47.6062,-122.3321,122.3321)
             
     # Edge test (non-float parameters)
