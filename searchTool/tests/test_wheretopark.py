@@ -141,6 +141,43 @@ class TestFindPlaces(unittest.TestCase):
 # Define a class in which the tests will run for rec_parking
 class TestRecParking(unittest.TestCase):
     """Perform testing of rec_parking"""
+    
+    # Smoke test
+    def test_rec_parking_smoke(self):
+        """Test to see if there is an unexpected exception."""
+        self.assertTrue(rec_parking(47.6062,-122.3321))
+
+    # Edge test (no parameter)
+    def test_rec_parking_edge1(self):
+        """Test when there is no input to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            rec_parking()
+
+    # Edge test (1 parameters)
+    def test_rec_parking_edge2(self):
+        """Test when there is only 1 inputs to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            rec_parking(47.6062)
+            
+    # Edge test (no parameter)
+    def test_rec_parking_edge3(self):
+        """Test when inputs are string to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            rec_parking('47.6062','-122.3321')
+
+    # Edge test (range of latitude)
+    def test_rec_parking_edge4(self):
+        """Test when the latitude is not within Seattle."""
+        lat = 50
+        rec_parking(lat,-122.3321)
+        self.assertAlmostEqual(47.6, lat, 'Latitude is out of the range of Seattle')
+
+    # Edge test (range of longitude)
+    def test_rec_parking_edge5(self):
+        """Test when the longitude is not within Seattle."""
+        lng = -100
+        rec_parking(47.6062,lng)
+        self.assertAlmostEqual(-122.3, lng, 'Longitude is out of the range of Seattle')
 
 
 if __name__ == '__main__':
