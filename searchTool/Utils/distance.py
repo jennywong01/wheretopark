@@ -5,7 +5,6 @@ import os
 from math import radians, cos, sin, asin, sqrt
 import pandas as pd
 import numpy as np
-import os
 
 
 def rec_parking(lat, lng):
@@ -13,10 +12,10 @@ def rec_parking(lat, lng):
     this function will take lat and lng for destination and output parking nearby
     '''
 
-    if lat == None:
+    if lat is None:
         raise ValueError("Latitude is not valid")
 
-    if lng == None:
+    if lng is None:
         raise ValueError("Longitude is not valid")
 
     if not isinstance(lat, (np.float64, float)):

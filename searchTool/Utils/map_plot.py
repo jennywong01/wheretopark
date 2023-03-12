@@ -12,30 +12,23 @@ from .distance import rec_parking
 
 # pylint: disable=R0914
 def my_map(lat, lng, zoom):
-    '''
+    """
     this function takes lat and lng from user input and plot parking spaces nearby
-    '''
-    if lat == None:
+    """
+    if lat is None:
         raise ValueError("Latitude is not valid")
-        
-    if lng == None:
+    if lng is None:
         raise ValueError("Longitude is not valid")
-        
     if not isinstance(lat, (np.float64, float)):
         raise TypeError("Latitude is not float")
-        
     if not isinstance(lng, (np.float64, float)):
         raise TypeError("Longitude is not float")
-    
-    if type(zoom) is not int:
+    if not isinstance(zoom, int):
         raise TypeError("Zoom is not integer")
-
     if lat < 47 or lat > 48:
         raise ValueError("Latitude is out of the range of Seattle")
-
     if lng < -123 or lng > -121:
         raise ValueError("Longiture is out of the range of Seattle")
-    
     if zoom <= 0:
         raise ValueError("Zoom is out of range")
         

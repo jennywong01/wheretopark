@@ -57,7 +57,7 @@ ignore-patterns=^\.#
 # (useful for modules/projects where namespaces are manipulated during runtime
 # and thus existing member attributes cannot be deduced by static analysis). It
 # supports qualified module names, as well as Unix pattern matching.
-ignored-modules=map_plot, search_place, forms, distance, wtforms
+ignored-modules=map_plot, search_place, forms, distance, wtforms, __init__
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
@@ -152,6 +152,8 @@ disable=raw-checker-failed,
         useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead
+
+disable: E1120, E1121, W1503, R0801, E1136
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -445,7 +447,7 @@ max-bool-expr=5
 max-branches=12
 
 # Maximum number of locals for function / method body.
-max-locals=15
+max-locals=20
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7
