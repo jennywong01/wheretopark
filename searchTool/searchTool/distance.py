@@ -12,6 +12,24 @@ def rec_parking(lat, lng):
     this function will take lat and lng for destination and output parking nearby
     '''
 
+    if lat == None:
+        raise ValueError("Latitude is not valid")
+
+    if lng == None:
+        raise ValueError("Longitude is not valid")
+
+    if type(lat) is not float:
+        raise TypeError("Latitude is not float")
+
+    if type(lng) is not float:
+        raise TypeError("Longitude is not float")
+
+    if lat < 47.4955 or lat > 47.7343:
+        raise ValueError("Latitude is out of the range of Seattle")
+
+    if lng < -122.4307 or lng > -122.2380:
+        raise ValueError("Longiture is out of the range of Seattle")
+
     def haversine_distance(lat1, lon1, lat2, lon2):
         """
         this function will take the user input address as reference and calculate
@@ -35,7 +53,6 @@ def rec_parking(lat, lng):
 
     ref_lat, ref_lng = lat, lng
 
-
     dirname = os.path.dirname(__file__)
     filename_paid = os.path.join(dirname, 'df_paid.pkl')
     filename_free = os.path.join(dirname, 'df_free.pkl')
@@ -44,7 +61,6 @@ def rec_parking(lat, lng):
     df_free = pd.read_pickle(filename_free)
 
     merged_df = pd.concat([df_paid, df_free])
-
 
     distances = []
     for _, row in merged_df.iterrows():
