@@ -14,6 +14,27 @@ def my_map(lat, lng, zoom):
     '''
     this function takes lat and lng from user input and plot parking spaces nearby
     '''
+    if lat == None:
+        raise ValueError("Latitude is not valid")
+        
+    if lng == None:
+        raise ValueError("Longitude is not valid")
+        
+    if type(lat) is not float:
+        raise ValueError("Latitude is not float")
+        
+    if type(lng) is not float:
+        raise ValueError("Longitude is not float")
+    
+    if type(zoom) is not int:
+        raise ValueError("Zoom is not integer")
+        
+    if lat < 47.4955 or lat > 47.7343:
+        raise ValueError("Latitude is out of the range of Seattle")
+        
+    if lng < -122.4307 or lng > -122.2380:
+        raise ValueError("Longiture is out of the range of Seattle")
+        
     dirname = os.path.dirname(__file__)
     filename_paid = os.path.join(dirname, 'df_paid.pkl')
     filename_free = os.path.join(dirname, 'df_free.pkl')
