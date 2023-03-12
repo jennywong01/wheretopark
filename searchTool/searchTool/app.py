@@ -1,18 +1,24 @@
+'''
+this is app module for wheretopark tool
+'''
+import pandas as pd
 from flask import Flask, render_template, request
 from bokeh.embed import components
 from bokeh.resources import CDN
+# pylint: disable=E0401
 from map_plot import my_map
+# pylint: disable=E0401
 from search_place import find_places
+# pylint: disable=E0401
 from forms import MapSearchForm
-import pandas as pd
 
 app = Flask(__name__)
-
 
 # default page
 @app.route('/', methods=['GET', 'POST'])
 def homepage():
     """ Define homepage """
+    # pylint: disable=invalid-name
     p = my_map(lat=47.6062, lng=-122.3321, zoom=14)
     script1, div1 = components(p)
 
@@ -50,7 +56,7 @@ def selected_place():
     places = pd.read_pickle(path)
     lat = places.iloc[row]['geometry.location.lat']
     lng = places.iloc[row]['geometry.location.lng']
-
+    # pylint: disable=invalid-name
     p = my_map(lat, lng, zoom=16)
 
     script, div = components(p)
