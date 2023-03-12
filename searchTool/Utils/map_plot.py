@@ -8,7 +8,7 @@ from bokeh.models import ColumnDataSource, GMapOptions
 from bokeh.plotting import gmap
 from bokeh.models import HoverTool
 # pylint: disable=import-error
-from distance import rec_parking
+from .distance import rec_parking
 
 # pylint: disable=R0914
 def my_map(lat, lng, zoom):
