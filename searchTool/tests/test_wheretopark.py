@@ -58,7 +58,7 @@ class TestMyMap(unittest.TestCase):
         lng = -100.0
         with self.assertRaises(ValueError):
             my_map(47.6062,lng,12)
-        
+
     # Edge test (zoom cannot be negative)
     def test_my_map_edge7(self):
         """Test when zoom value is negative."""
@@ -137,11 +137,11 @@ class TestFindPlaces(unittest.TestCase):
         """Test using 2 input parameters to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             find_places('Starbucks','Reserve')
-            
+
 # Define a class in which the tests will run for rec_parking
 class TestRecParking(unittest.TestCase):
     """Perform testing of rec_parking"""
-    
+
     # Smoke test
     def test_rec_parking_smoke(self):
         """Test to see if there is an unexpected exception."""
@@ -159,7 +159,7 @@ class TestRecParking(unittest.TestCase):
         """Test when there is only 1 inputs to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             rec_parking(47.6062)
-            
+
     # Edge test (no parameter)
     def test_rec_parking_edge3(self):
         """Test when inputs are string to see if expected exception occurs."""
@@ -179,7 +179,6 @@ class TestRecParking(unittest.TestCase):
         lng = -100.0
         with self.assertRaises(ValueError):
             rec_parking(47.6062,lng)
-    
 
 if __name__ == '__main__':
     unittest.main()
