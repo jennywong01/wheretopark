@@ -1,87 +1,87 @@
 """
 Tests functions created for wheretopark project.
 
-TestMyMap is a class that tests my_map through smoke and edge tests.
-TestSelectedMap is a class that tests selected_map through smoke tests and edge tests.
-TestFindPlaces is a class that tests find_places through smoke, edge, and one-shot tests.
+TestMyMap is a class that tests my_map through various tests.
+TestFindPlaces is a class that tests find_places through various tests.
 
 """
 
 import unittest
 from searchTool import my_map
 from searchTool import find_places
+from searchTool import rec_parking
 
-# Define a class in which the tests will run for selected_map
+# Define a class in which the tests will run for my_map
 class TestMyMap(unittest.TestCase):
-    """Perform testing of my_map through smoke tests and edge tests"""
+    """Perform testing of my_map"""
 
     # Smoke test
-    def test_selected_map_smoke(self):
+    def test_my_map_smoke(self):
         """Test to see if there is an unexpected exception."""
         map_smoke = my_map(47.6062,-122.3321, 12)
         self.assertTrue(map_smoke)
 
     # Edge test (1 parameter)
-    def test_selected_map_edge1(self):
+    def test_my_map_edge1(self):
         """Test when there is only one input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
-            my_map(47.6062, -122.3321)
-            
+            my_map(47.6062)
+
     # Edge test (2 parameters)
-    def test_selected_map_edge2(self):
-        """Test when there is only one input to see if expected exception occurs."""
+    def test_my_map_edge2(self):
+        """Test when there are only 2 inputs to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             my_map(47.6062, -122.3321)
 
     # Edge test (3 parameters)
-    def test_selected_map_edge3(self):
-        """Test when there are 3 inputs to see if expected exception occurs."""
-        with self.assertRaises(TypeError):
+    def test_my_map_edge3(self):
+        """Test when 3rd input is not integer to see if expected exception occurs."""
+        with self.assertRaises(ValueError):
             my_map(47.6062,-122.3321,122.3321)
-            
+
     # Edge test (non-float parameters)
-    def test_selected_map_edge4(self):
+    def test_my_map_edge4(self):
         """Test when inputs are string."""
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             my_map('47.6062','-122.3321','12')
-            
+
     # Edge test (range of latitude)
-    def test_selected_map_edge5(self):
+    def test_my_map_edge5(self):
         """Test when the latitude is not within Seattle."""
         lat = 50
         my_map(lat,-122.3321,12)
         self.assertAlmostEqual(47.6, lat, 'Latitude is out of the range of Seattle')
-            
+
     # Edge test (range of longitude)
-    def test_selected_map_edge6(self):
+    def test_my_map_edge6(self):
         """Test when the longitude is not within Seattle."""
         lng = -100
         my_map(47.6062,lng,12)
         self.assertAlmostEqual(-122.3, lng, 'Longitude is out of the range of Seattle')
-        
+
     # Edge test (zoom cannot be negative)
-    def test_selected_map_edge7(self):
-        """Test when the longitude is not within Seattle."""
+    def test_my_map_edge7(self):
+        """Test when zoom value is negative."""
         zoom = -100
         my_map(47.6062,-122.3321,zoom)
         assert (zoom <= 0),'Zoom is negative'
-        
+
     # Edge test (zoom cannot be too large)
-    def test_selected_map_edge8(self):
-        """Test when the longitude is not within Seattle."""
+    def test_my_map_edge8(self):
+        """Test when zoom value is too large."""
         zoom = 20
         my_map(47.6062,-122.3321,zoom)
         assert (zoom >= 20),'Zoom in too far'
 
     # Edge test (No parameters)
-    def test_selected_map_edge0(self):
+    def test_my_map_edge0(self):
         """Test when there is no input to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             my_map()
-            
-    # Edge test (No parameters)
-    def test_selected_map_edge9(self):
-        """Test if there are 5 tools in gmap."""
+
+    # One-shot test
+    def test_my_map_oneshot(self):
+        """Test to ensure there are 5 tools in gmap."""
         self.assertEqual(5,len(my_map(47.6062,-122.3321, 12).tools))
 
 
@@ -137,6 +137,47 @@ class TestFindPlaces(unittest.TestCase):
         """Test using 2 input parameters to see if expected exception occurs."""
         with self.assertRaises(TypeError):
             find_places('Starbucks','Reserve')
+            
+# Define a class in which the tests will run for rec_parking
+class TestRecParking(unittest.TestCase):
+    """Perform testing of rec_parking"""
+    
+    # Smoke test
+    def test_rec_parking_smoke(self):
+        """Test to see if there is an unexpected exception."""
+        self.assertTrue(rec_parking(47.6062,-122.3321))
+
+    # Edge test (no parameter)
+    def test_rec_parking_edge1(self):
+        """Test when there is no input to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            rec_parking()
+
+    # Edge test (1 parameters)
+    def test_rec_parking_edge2(self):
+        """Test when there is only 1 inputs to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            rec_parking(47.6062)
+            
+    # Edge test (no parameter)
+    def test_rec_parking_edge3(self):
+        """Test when inputs are string to see if expected exception occurs."""
+        with self.assertRaises(TypeError):
+            rec_parking('47.6062','-122.3321')
+
+    # Edge test (range of latitude)
+    def test_rec_parking_edge4(self):
+        """Test when the latitude is not within Seattle."""
+        lat = 50
+        rec_parking(lat,-122.3321)
+        self.assertAlmostEqual(47.6, lat, 'Latitude is out of the range of Seattle')
+
+    # Edge test (range of longitude)
+    def test_rec_parking_edge5(self):
+        """Test when the longitude is not within Seattle."""
+        lng = -100
+        rec_parking(47.6062,lng)
+        self.assertAlmostEqual(-122.3, lng, 'Longitude is out of the range of Seattle')
 
 
 if __name__ == '__main__':

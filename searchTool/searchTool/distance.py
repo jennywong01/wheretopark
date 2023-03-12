@@ -4,6 +4,7 @@ this module will calculate and sort the distance from destination to all parking
 import os
 from math import radians, cos, sin, asin, sqrt
 import pandas as pd
+import os
 
 
 def rec_parking(lat, lng):
@@ -34,6 +35,7 @@ def rec_parking(lat, lng):
 
     ref_lat, ref_lng = lat, lng
 
+
     dirname = os.path.dirname(__file__)
     filename_paid = os.path.join(dirname, 'df_paid.pkl')
     filename_free = os.path.join(dirname, 'df_free.pkl')
@@ -42,6 +44,7 @@ def rec_parking(lat, lng):
     df_free = pd.read_pickle(filename_free)
 
     merged_df = pd.concat([df_paid, df_free])
+
 
     distances = []
     for row in merged_df.iterrows():
