@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href= "{{ url_for('static',filename='hello.css') }}"/>
     <meta charset="UTF-8">
     {{ resources|safe }}
 
 	<title>DEMO</title>
     {% if message %}
-        <h4>{{ message }}!</h4>
+        <h2 align="center">{{ message }}!</h2>
     {% endif %}
 
     {% if test%}
@@ -21,13 +22,13 @@
 
 
 <body>
-    <div>
+    <div class="center">
         {% from "_formhelper.html" import render_field %}
         <form method="post">
-            <dl>
+            <div class="col">
                 {{ render_field(form.search) }}
-            </dl>
-            <p><input type="submit" value="Search"></p>
+                <input type="submit" value="Search">
+            </div>
         </form>
     </div>
 
