@@ -21,19 +21,22 @@ def my_map(lat, lng, zoom):
         raise ValueError("Longitude is not valid")
         
     if type(lat) is not float:
-        raise ValueError("Latitude is not float")
+        raise TypeError("Latitude is not float")
         
     if type(lng) is not float:
-        raise ValueError("Longitude is not float")
+        raise TypeError("Longitude is not float")
     
     if type(zoom) is not int:
-        raise ValueError("Zoom is not integer")
+        raise TypeError("Zoom is not integer")
         
     if lat < 47.4955 or lat > 47.7343:
         raise ValueError("Latitude is out of the range of Seattle")
         
     if lng < -122.4307 or lng > -122.2380:
         raise ValueError("Longiture is out of the range of Seattle")
+    
+    if zoom <= 0:
+        raise ValueError("Zoom is out of range")
         
     dirname = os.path.dirname(__file__)
     filename_paid = os.path.join(dirname, 'df_paid.pkl')

@@ -7,7 +7,7 @@ def find_places(keyword):
     '''this function is used to search place by user input'''
     
     if type(keyword) is not str:
-        raise ValueError("Input location is not string")
+        raise TypeError("Input location is not string")
         
     if len(keyword)==0:
         raise ValueError("Empty input")
@@ -22,7 +22,7 @@ def find_places(keyword):
     df = pd.json_normalize(response.json(), record_path=['results'])
     
     if df.shape[0]==0:
-        raise ValueError("Invalid input")
+        raise KeyError("Invalid input")
         
     # pylint: disable=invalid-name
     df = df[['place_id', 'name', 'vicinity', 'geometry.location.lat', 'geometry.location.lng']]

@@ -19,10 +19,10 @@ def rec_parking(lat, lng):
         raise ValueError("Longitude is not valid")
         
     if type(lat) is not float:
-        raise ValueError("Latitude is not float")
+        raise TypeError("Latitude is not float")
         
     if type(lng) is not float:
-        raise ValueError("Longitude is not float")
+        raise TypeError("Longitude is not float")
         
     if lat < 47.4955 or lat > 47.7343:
         raise ValueError("Latitude is out of the range of Seattle")
