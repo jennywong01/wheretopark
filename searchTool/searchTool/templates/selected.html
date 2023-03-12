@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='hello.css') }}"/>
     {{ resources|safe }}
 
     <title>Title</title>
 </head>
 <body>
-    <h4>selected!</h4>
+    <h3 class="center">Here is what we found:</h3>
 
-    <div class="container">
+    <div align="center">
         {{ div | safe }}
         {{ script | safe }}
     </div>
+
+    <div class="center">
+        <button onclick="goBack()">Go Back</button>
+        <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+    </div>
+
 </body>
 </html>

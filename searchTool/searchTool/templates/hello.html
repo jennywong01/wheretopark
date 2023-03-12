@@ -2,21 +2,15 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href= "{{ url_for('static',filename='hello.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='hello.css') }}"/>
     <meta charset="UTF-8">
     {{ resources|safe }}
 
 	<title>DEMO</title>
     {% if message %}
-        <h2 align="center">{{ message }}!</h2>
+        <h2 class="headertekst">{{ message }}!</h2>
     {% endif %}
 
-    {% if test%}
-        {% for table in tables %}
-            {{titles[loop.index]}}
-            {{ table|safe }}
-        {% endfor %}
-    {% endif %}
 
 </head>
 
@@ -32,9 +26,35 @@
         </form>
     </div>
 
-    <div class="container">
-        {{ div | safe }}
-        {{ script | safe }}
+
+
+
+
+
+    {% if not search %}
+        <div align="center">
+            {{ div | safe }}
+            {{ script | safe }}
+        </div>
+    {% else %}
+        <div class="wrapper">
+        <div class="left">
+          <div>
+            {{ div | safe }}
+            {{ script | safe }}
+          </div>
+        </div>
+
+        <div class="right">
+            {% for table in tables %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
     </div>
+
 </body>
 </html>

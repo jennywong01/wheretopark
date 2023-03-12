@@ -4,6 +4,7 @@ this module will calculate and sort the distance from destination to all parking
 import os
 from math import radians, cos, sin, asin, sqrt
 import pandas as pd
+import numpy as np
 import os
 
 
@@ -18,16 +19,16 @@ def rec_parking(lat, lng):
     if lng == None:
         raise ValueError("Longitude is not valid")
 
-    if type(lat) is not float:
+    if not isinstance(lat, (np.float64, float)):
         raise TypeError("Latitude is not float")
 
-    if type(lng) is not float:
+    if not isinstance(lng, (np.float64, float)):
         raise TypeError("Longitude is not float")
 
-    if lat < 47.4955 or lat > 47.7343:
+    if lat < 47 or lat > 48:
         raise ValueError("Latitude is out of the range of Seattle")
 
-    if lng < -122.4307 or lng > -122.2380:
+    if lng < -123 or lng > -121:
         raise ValueError("Longiture is out of the range of Seattle")
 
     def haversine_distance(lat1, lon1, lat2, lon2):

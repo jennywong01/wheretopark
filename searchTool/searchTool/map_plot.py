@@ -3,6 +3,7 @@ this module plot different parking layer to gmap
 '''
 import os
 import pandas as pd
+import numpy as np
 from bokeh.models import ColumnDataSource, GMapOptions
 from bokeh.plotting import gmap
 from bokeh.models import HoverTool
@@ -20,19 +21,19 @@ def my_map(lat, lng, zoom):
     if lng == None:
         raise ValueError("Longitude is not valid")
         
-    if type(lat) is not float:
+    if not isinstance(lat, (np.float64, float)):
         raise TypeError("Latitude is not float")
         
-    if type(lng) is not float:
+    if not isinstance(lng, (np.float64, float)):
         raise TypeError("Longitude is not float")
     
     if type(zoom) is not int:
         raise TypeError("Zoom is not integer")
-        
-    if lat < 47.4955 or lat > 47.7343:
+
+    if lat < 47 or lat > 48:
         raise ValueError("Latitude is out of the range of Seattle")
-        
-    if lng < -122.4307 or lng > -122.2380:
+
+    if lng < -123 or lng > -121:
         raise ValueError("Longiture is out of the range of Seattle")
     
     if zoom <= 0:
@@ -56,7 +57,6 @@ def my_map(lat, lng, zoom):
     p = gmap("AIzaSyBRHz--MwYpTNPjYTRjAK5yXo-g7yZhDa0",
              map_options,
              width=1000, height=600,
-             title="Demo",
              tools=['reset', 'wheel_zoom', 'pan'])
 
     plot1 = p.multi_line(xs='lngs', ys='lats', line_width=2, color='colors',
