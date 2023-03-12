@@ -151,9 +151,12 @@ disable=raw-checker-failed,
         suppressed-message,
         useless-suppression,
         deprecated-pragma,
-        use-symbolic-message-instead
+        use-symbolic-message-instead,
+        no-value-for-parameter,
+        too-many-function-args,
+        redundant-unittest-assert,
+        duplicate-code,
 
-"disable": "E1120", "E1121", "W1503", "R0801", "E1136"
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
