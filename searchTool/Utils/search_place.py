@@ -18,7 +18,7 @@ def find_places(keyword):
     df = pd.json_normalize(response.json(), record_path=['results'])
     if df.shape[0]==0:
         raise KeyError("Invalid input")
-        
+
     # pylint: disable=invalid-name
     df = df[['place_id', 'name', 'vicinity', 'geometry.location.lat', 'geometry.location.lng']]
     return df

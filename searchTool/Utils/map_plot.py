@@ -31,7 +31,7 @@ def my_map(lat, lng, zoom):
         raise ValueError("Longiture is out of the range of Seattle")
     if zoom <= 0:
         raise ValueError("Zoom is out of range")
-        
+
     dirname = os.path.dirname(__file__)
     filename_paid = os.path.join(dirname, 'df_paid.pkl')
     filename_free = os.path.join(dirname, 'df_free.pkl')
