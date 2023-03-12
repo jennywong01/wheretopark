@@ -7,9 +7,9 @@ TestFindPlaces is a class that tests find_places through various tests.
 """
 
 import unittest
-from searchTool import my_map
-from searchTool import find_places
-from searchTool import rec_parking
+from searchTool.Utils import my_map
+from searchTool.Utils import find_places
+from searchTool.Utils import rec_parking
 
 # Define a class in which the tests will run for my_map
 class TestMyMap(unittest.TestCase):

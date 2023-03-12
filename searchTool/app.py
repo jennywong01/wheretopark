@@ -6,11 +6,11 @@ from flask import Flask, render_template, request
 from bokeh.embed import components
 from bokeh.resources import CDN
 # pylint: disable=E0401
-from map_plot import my_map
+from Utils.map_plot import my_map
 # pylint: disable=E0401
-from search_place import find_places
+from Utils.search_place import find_places
 # pylint: disable=E0401
-from forms import MapSearchForm
+from Utils.forms import MapSearchForm
 
 app = Flask(__name__)
 
