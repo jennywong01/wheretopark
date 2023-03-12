@@ -1,0 +1,38 @@
+.center {
+    border-color : red ;
+    border-style : solid ;
+    border-width : 0;
+    text-align: center;
+}
+
+h2.headertekst {
+  text-align: center;
+}
+
+.wrapper{
+    display: flex;
+}
+.left{
+    flex: 0 0 70%;
+}
+.right{
+    flex: 1;
+}
+/*.float-container {*/
+/*    border: 3px solid #fff;*/
+/*    padding: 20px;*/
+/*}*/
+
+/*.float-child-l {*/
+/*    width: 80%;*/
+/*    float: left;*/
+/*    padding: 20px;*/
+/*    border: 2px solid red;*/
+/*}*/
+
+/*.float-child-r {*/
+/*    width: 20%;*/
+/*    float: left;*/
+/*    padding: 20px;*/
+/*    border: 2px solid red;*/
+/*}*/

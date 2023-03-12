@@ -31,8 +31,8 @@ def homepage():
                                           f'<a href=selected_place?result={path}&row={x}>{x} \
                                           {places["name"][x]}</a>')
 
-        return render_template('hello.html', message="TEST",
-                               test=True,
+        return render_template('hello.html', message="Welcome to use WheretoPark",
+                               search=True,
                                tables=[places[['name', 'vicinity']].to_html(classes='data',
                                                                             escape=False)],
                                titles=places.columns.values,

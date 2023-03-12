@@ -4,6 +4,7 @@ this module will calculate and sort the distance from destination to all parking
 import os
 from math import radians, cos, sin, asin, sqrt
 import pandas as pd
+import numpy as np
 import os
 
 
@@ -11,6 +12,24 @@ def rec_parking(lat, lng):
     '''
     this function will take lat and lng for destination and output parking nearby
     '''
+
+    if lat == None:
+        raise ValueError("Latitude is not valid")
+
+    if lng == None:
+        raise ValueError("Longitude is not valid")
+
+    if not isinstance(lat, (np.float64, float)):
+        raise TypeError("Latitude is not float")
+
+    if not isinstance(lng, (np.float64, float)):
+        raise TypeError("Longitude is not float")
+
+    if lat < 47 or lat > 48:
+        raise ValueError("Latitude is out of the range of Seattle")
+
+    if lng < -123 or lng > -121:
+        raise ValueError("Longiture is out of the range of Seattle")
 
     def haversine_distance(lat1, lon1, lat2, lon2):
         """
@@ -35,7 +54,6 @@ def rec_parking(lat, lng):
 
     ref_lat, ref_lng = lat, lng
 
-
     dirname = os.path.dirname(__file__)
     filename_paid = os.path.join(dirname, 'df_paid.pkl')
     filename_free = os.path.join(dirname, 'df_free.pkl')
@@ -45,9 +63,8 @@ def rec_parking(lat, lng):
 
     merged_df = pd.concat([df_paid, df_free])
 
-
     distances = []
-    for row in merged_df.iterrows():
+    for _, row in merged_df.iterrows():
         lat = row['lats'][0]
         lon = row['lngs'][0]
         distance = haversine_distance(ref_lng, ref_lat, lon, lat)
