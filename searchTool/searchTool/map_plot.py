@@ -7,7 +7,7 @@ from bokeh.models import ColumnDataSource, GMapOptions
 from bokeh.plotting import gmap
 from bokeh.models import HoverTool
 # pylint: disable=import-error
-from .distance import rec_parking
+from distance import rec_parking
 
 # pylint: disable=R0914
 def my_map(lat, lng, zoom):
@@ -36,12 +36,12 @@ def my_map(lat, lng, zoom):
              tools=['reset', 'wheel_zoom', 'pan'])
 
     plot1 = p.multi_line(xs='lngs', ys='lats', line_width=2, color='colors',
-                         alpha=0.3, source=source1)
+                         alpha=0.5, source=source1, legend_group="parking_cat")
     p.add_tools(HoverTool(renderers=[plot1], tooltips=[('Category', '@parking_cat'),
                                                        ('Unit_desc', '@unit_desc')]))
 
     plot2 = p.multi_line(xs='lngs', ys='lats', line_width=2, color='colors',
-                         alpha=0.3, source=source2)
+                         alpha=0.5, source=source2, legend_group="parking_cat")
     p.add_tools(HoverTool(renderers=[plot2], tooltips=[('Category', '@parking_cat'),
                                                        ('Unit_desc', '@unit_desc'),
                                                        ('ParkingSpaceCount', '@ParkingSpaceCount')
@@ -50,4 +50,8 @@ def my_map(lat, lng, zoom):
     p.multi_line(xs='lngs', ys='lats', line_width=3, color='colors', alpha=1, source=source3)
 
     p.star_dot(lng, lat, size=25, color='red')
+
+    p.legend.location = "bottom_right"
+    p.legend.title = "Legend"
+    p.legend.background_fill_alpha = 1
     return p

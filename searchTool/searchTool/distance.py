@@ -47,7 +47,7 @@ def rec_parking(lat, lng):
 
 
     distances = []
-    for row in merged_df.iterrows():
+    for _, row in merged_df.iterrows():
         lat = row['lats'][0]
         lon = row['lngs'][0]
         distance = haversine_distance(ref_lng, ref_lat, lon, lat)
