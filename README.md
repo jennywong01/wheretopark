@@ -22,8 +22,7 @@ Google map API: API key required
 
 ## Instructions:
 * Pull on main to get the latest version of the application
-* conda env create -f environment.yml
-* conda activate wheretopark
-* python app.py
-
-
+* Run the command `conda env create -f environment.yml`
+* Run the command `conda activate wheretopark`
+* Run the command `python app.py`
+* Access the local URL provided
