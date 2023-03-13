@@ -10,7 +10,7 @@ Output the information of the recommended parking location based on the search r
 
 ## Questions of Interest:
   1. Where to find nearest parking spaces near given destination?
-  2. Which paid parking area has more space?
+  2. Find information about the parking areas, eg. category, parking space.
   
 ## Data sources:
 
