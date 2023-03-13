@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea/
-searchTool/.idea/
+wheretopark/.idea/
 
 # C extensions
 *.so
