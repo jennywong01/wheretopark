@@ -3,6 +3,7 @@ Tests functions created for wheretopark project.
 
 TestMyMap is a class that tests my_map through various tests.
 TestFindPlaces is a class that tests find_places through various tests.
+TestRecParking is a class that tests rec_parking through various tests.
 
 """
 
