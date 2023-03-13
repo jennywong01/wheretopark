@@ -8,9 +8,9 @@ TestRecParking is a class that tests rec_parking through various tests.
 """
 
 import unittest
-from searchTool.Utils import my_map
-from searchTool.Utils import find_places
-from searchTool.Utils import rec_parking
+from wheretopark.Utils import my_map
+from wheretopark.Utils import find_places
+from wheretopark.Utils import rec_parking
 
 # Define a class in which the tests will run for my_map
 class TestMyMap(unittest.TestCase):
