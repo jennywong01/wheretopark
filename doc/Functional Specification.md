@@ -1,7 +1,7 @@
 # Functional Specification
 
 ## Background
-Parking in Seattle can be difficult, especially if one is unfamiliar with the neighborhood. Moreover, different areas have different specifications, such as *Paid Parking*, *Restricted Parking*, and *Carpool Parking*. WheretoPark is a web-based application developed to assist users in locating all available parking spaces near their intended destination. With this application, users can easily input their desired location or scroll around the provided map, and see all available parking locations, labeled by parking specification. This tool will make it easier for users to plan ahead and find a suitable place to park their vehicle.
+Parking in Seattle can be difficult, especially if one is unfamiliar with the neighborhood. Moreover, different areas have different specifications, such as *Paid Parking*, *Restricted Parking*, and *Carpool Parking*. Where to Park is a web-based application developed to assist users in locating all available parking spaces near their intended destination. With this application, users can easily input their desired location or scroll around the provided map, and see all available parking locations, labeled by parking specification. This tool will make it easier for users to plan ahead and find a suitable place to park their vehicle.
 
 
 
