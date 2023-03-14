@@ -10,3 +10,4 @@ dependencies:
   - requests
   - flask
   - pylint
+  - wtforms
