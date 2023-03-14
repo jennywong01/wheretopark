@@ -1,7 +1,5 @@
 # Where to Park
 
-[![Coverage Status](https://coveralls.io/repos/github/jennywong01/wheretopark/badge.svg?branch=main)](https://coveralls.io/github/jennywong01/wheretopark?branch=main)
-
 ## Project Type: Tool
 
 ## Project Goal
