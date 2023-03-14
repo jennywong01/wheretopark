@@ -2,7 +2,7 @@
 # import os
 import requests
 import pandas as pd
-from config import GOOGLE_API_KEY
+from .config import GOOGLE_API_KEY
 
 
 def find_places(keyword):
