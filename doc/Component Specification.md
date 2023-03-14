@@ -9,7 +9,8 @@ In addition to other components, our project includes a Google Maps API componen
 
 
 ## Interactions to Accomplish Use Cases 
-The user inputs their destination into the system. The Google Maps API component then verifies the input, and if it is valid, it passes the location coordinates to the data manager component. Using these coordinates, the data manager component calculates the distances to all available parking locations and outputs the top 10 closest parking locations to the destination in a dataframe. This dataframe is then passed to the visualization manager component, which utilizes the dataframe to display the recommended parking locations on Google Maps.![diagram](https://user-images.githubusercontent.com/122236389/224887778-7102a82c-40ed-4b9a-a307-2727928891da.jpg)
+The user inputs their destination into the system. The Google Maps API component then verifies the input, and if it is valid, it passes the location coordinates to the data manager component. Using these coordinates, the data manager component calculates the distances to all available parking locations and outputs the top 10 closest parking locations to the destination in a dataframe. This dataframe is then passed to the visualization manager component, which utilizes the dataframe to display the recommended parking locations on Google Maps.![diagram](https://user-images.githubusercontent.com/122236389/225102317-1a31ea71-9797-4475-9535-63bc04625712.jpg)
+
 
 
 ## Preliminary Plan 
