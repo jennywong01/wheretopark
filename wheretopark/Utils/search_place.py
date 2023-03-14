@@ -21,4 +21,5 @@ def find_places(keyword):
 
     # pylint: disable=invalid-name
     df = df[['place_id', 'name', 'vicinity', 'geometry.location.lat', 'geometry.location.lng']]
+    df = df[df['vicinity'].str.contains('Seattle')].reset_index().drop('index', axis=1)
     return df

@@ -25,7 +25,7 @@ def homepage():
     search = MapSearchForm(request.form)
     if request.method == 'POST' and search.validate():
         places = find_places(search.search.data)
-        path = 'result.pkl'
+        path = 'Utils/result.pkl'
         places.to_pickle(path)
         places['name'] = places.index.map(lambda x:
                                           f'<a href=selected_place?result={path}&row={x}>{x} \
