@@ -14,7 +14,7 @@ def find_places(keyword):
         raise ValueError("Empty input")
     lat, lng = 47.6062, -122.3321
     load_dotenv('./.env')
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('GOOGLE_API_KEY')
     # api_key = os.getenv("GOOGLE_API_KEY", '')
     # api_key = GOOGLE_API_KEY
     base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"

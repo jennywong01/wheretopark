@@ -50,7 +50,7 @@ def my_map(lat, lng, zoom):
 
     # pylint: disable=invalid-name
     load_dotenv('./.env')
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('GOOGLE_API_KEY')
     # api_key = os.getenv("GOOGLE_API_KEY", "")
     # api_key = GOOGLE_API_KEY
     p = gmap(api_key,
