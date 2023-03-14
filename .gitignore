@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 .idea/
 wheretopark/.idea/
+config.js
 
 # C extensions
 *.so
