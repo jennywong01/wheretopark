@@ -47,7 +47,8 @@ def my_map(lat, lng, zoom):
     source3 = ColumnDataSource(data=df_rec)
 
     # pylint: disable=invalid-name
-    p = gmap("AIzaSyBRHz--MwYpTNPjYTRjAK5yXo-g7yZhDa0",
+    api_key = os.getenv("GOOGLE_API_KEY")
+    p = gmap(api_key,
              map_options,
              width=1000, height=600,
              tools=['reset', 'wheel_zoom', 'pan'])
