@@ -20,5 +20,5 @@ Where to Park is a web-based application developed to assist drivers in Seattle 
 1. Pull on main to get the latest version of the application
 2. Run the command `conda env create -f environment.yml`
 3. Run the command `conda activate wheretopark`
-4. Run the command `python app.py`
+4. Run the command `python wheretopark/app.py`
 5. Access the local URL provided
