@@ -9,8 +9,8 @@ from bokeh.plotting import gmap
 from bokeh.models import HoverTool
 # pylint: disable=import-error
 # from .config import GOOGLE_API_KEY
-from .distance import rec_parking
 from dotenv import load_dotenv
+from .distance import rec_parking
 
 # pylint: disable=R0914
 def my_map(lat, lng, zoom):
