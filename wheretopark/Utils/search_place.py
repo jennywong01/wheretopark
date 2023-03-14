@@ -2,8 +2,6 @@
 import os
 import requests
 import pandas as pd
-from dotenv import load_dotenv
-# from .config import GOOGLE_API_KEY
 
 
 def find_places(keyword):
@@ -13,10 +11,7 @@ def find_places(keyword):
     if len(keyword)==0:
         raise ValueError("Empty input")
     lat, lng = 47.6062, -122.3321
-    load_dotenv('./.env')
-    api_key = os.getenv('GOOGLE_API_KEY')
-    # api_key = os.getenv("GOOGLE_API_KEY", '')
-    # api_key = GOOGLE_API_KEY
+    api_key = 'AIzaSyBRHz--MwYpTNPjYTRjAK5yXo-g7yZhDa0'
     base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
     url = f"{base_url}&keyword={keyword}&location={lat}%2C{lng}&radius=16000&key={api_key}"
     response = requests.request("GET", url, headers={}, data={}, timeout=30)
