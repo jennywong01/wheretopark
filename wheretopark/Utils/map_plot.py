@@ -9,6 +9,7 @@ from bokeh.plotting import gmap
 from bokeh.models import HoverTool
 # pylint: disable=import-error
 from .distance import rec_parking
+import config
 
 # pylint: disable=R0914
 def my_map(lat, lng, zoom):
@@ -47,7 +48,8 @@ def my_map(lat, lng, zoom):
     source3 = ColumnDataSource(data=df_rec)
 
     # pylint: disable=invalid-name
-    api_key = os.getenv("GOOGLE_API_KEY", "")
+    # api_key = os.getenv("GOOGLE_API_KEY", "")
+    api_key = config.GOOGLE_API_KEY
     p = gmap(api_key,
              map_options,
              width=1000, height=600,
